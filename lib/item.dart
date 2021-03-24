@@ -2,6 +2,8 @@ class Item {
   int _id;
   String _name;
   int _price;
+  int _stock;
+  String _itemCode;
 
   int get id => _id;
 
@@ -11,14 +13,22 @@ class Item {
   get price => this._price;
   set price(value) => this._price = value;
 
+  String get itemCode => this._itemCode;
+  set itemCode(String value) => this._itemCode = value;
+
+  get stock => this._stock;
+  set stock(value) => this._stock = value;
+
   // konstruktor versi 1
-  Item(this._name, this._price);
+  Item(this._name, this._price, this._stock, this._itemCode);
 
   // konstruktor versi 2: konversi dari Map ke Item
   Item.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
     this._name = map['name'];
     this._price = map['price'];
+    this._stock = map['stock'];
+    this._itemCode = map['itemCode'];
   }
 
   // konversi dari Item ke Map
@@ -27,6 +37,8 @@ class Item {
     map['id'] = this._id;
     map['name'] = name;
     map['price'] = price;
+    map['stock'] = this._stock;
+    map['itemCode'] = this._itemCode;
     return map;
   }
 }

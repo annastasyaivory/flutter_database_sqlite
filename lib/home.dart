@@ -15,6 +15,7 @@ class HomeState extends State<Home> {
   DbHelper dbHelper = DbHelper();
   int count = 0;
   List<Item> itemList;
+
   @override
   Widget build(BuildContext context) {
     if (itemList == null) {
@@ -76,7 +77,14 @@ class HomeState extends State<Home> {
               this.itemList[index].name,
               style: textStyle,
             ),
-            subtitle: Text(this.itemList[index].price.toString()),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Price: ' + this.itemList[index].price.toString()),
+                Text('Stock: ' + this.itemList[index].stock.toString()),
+                Text('Item Code: ' + this.itemList[index].itemCode),
+              ],
+            ),
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {
