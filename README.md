@@ -8,9 +8,9 @@ Praktikum Pemrograman Mobile Database SQLite
 
 ## Tambah Item
 <p float="left">
-  <img src="/images/tambah_item.jpeg" width="300" />
-  <img src="/images/tambah_item_isi_kolom.jpeg" width="300" /> 
-  <img src="/images/tambah_item_tampil.jpeg" width="300" />
+  <img src="/images/tambah_item.jpeg" width="200" />
+  <img src="/images/tambah_item_isi_kolom.jpeg" width="200" /> 
+  <img src="/images/tambah_item_tampil.jpeg" width="200" />
 </p>
 
 ## Edit Item
