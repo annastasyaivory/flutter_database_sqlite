@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  DbHelper dbHelper = DbHelper();
+  DbHelper dbHelper = DbHelper(); //panggil class dbhelper
   int count = 0;
   List<Item> itemList;
 
@@ -37,8 +37,8 @@ class HomeState extends State<Home> {
               child: Text("Tambah Item"),
               onPressed: () async {
                 var item = await navigateToEntryForm(context, null);
+                //TODO 2 Panggil Fungsi untuk Insert ke DB
                 if (item != null) {
-//TODO 2 Panggil Fungsi untuk Insert ke DB
                   int result = await dbHelper.insert(item);
                   if (result > 0) {
                     updateListView();
@@ -92,7 +92,7 @@ class HomeState extends State<Home> {
                 int id = this.itemList[index].id;
                 int result = await dbHelper.delete(id);
                 itemList.removeAt(index);
-                updateListView();
+                updateListView(); //update list item
               },
             ),
             onTap: () async {
@@ -102,7 +102,7 @@ class HomeState extends State<Home> {
               if (item != null) {
                 int result = await dbHelper.update(item);
                 if (result > 0) {
-                  updateListView();
+                  updateListView(); //update list iten
                 }
               }
             },

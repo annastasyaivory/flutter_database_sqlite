@@ -1,0 +1,13 @@
+item.dart
+1. inisialisasi atribut
+2. buat setter getter tiap var baru
+3. penambahan di masing masing konstruktor
+4. penambahan pada fungsi konversi dari item ke map
+
+entryform.dart
+1. inisialisasi controller 
+2. penambahan kondisi
+3. penambahan entry form untuk var baru
+4. penambahan kondisi pada behaviour tambah data dan rubah data
+
+home.dart : penambahan children pada subtitle agar bisa ditampilkan  

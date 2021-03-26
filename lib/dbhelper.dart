@@ -8,13 +8,23 @@ class DbHelper {
   static DbHelper _dbHelper;
   static Database _database;
   DbHelper._createObject();
+
+  // future adalah tipe data yang terpanggil dengan adanya delay atau keterlambatan
+  // async : menggunakan future pada sebuah method, sehingga membuat sistem menunggu sampai terjadi Blocking
   Future<Database> initDb() async {
-//untuk menentukan nama database dan lokasi yg dibuat
+    // await : artinya sistem harus menunggu sampai syntax tersebut selesai berjalan
+    // Method getApplicationDocumentsDirectory() berfungsi untuk mengambil direktori folder aplikasi untuk menempatkan data yang dibuat pengguna sehingga tidak dapat dibuat ulang oleh aplikasi tersebut.
     Directory directory = await getApplicationDocumentsDirectory();
+
+    //untuk menentukan nama database dan lokasi yg dibuat
     String path = directory.path + 'item.db';
-//create, read databases
+
+    //openDatabase : membuat dan mengakses database
+    // version : level penggunaan database
+    // onCreate : membuat tabel
     var itemDatabase = openDatabase(path, version: 4, onCreate: _createDb);
-//mengembalikan nilai object sebagai hasil dari fungsinya
+
+    //mengembalikan nilai object sebagai hasil dari fungsinya
     return itemDatabase;
   }
 
@@ -30,6 +40,9 @@ itemCode TEXT
 )
 ''');
   }
+
+// fungsi untuk melakukan CRUD (create, read, update, delete)
+// Variable count digunakan untuk menampung hasil SQL ² nya. Bertipe Integer karena ketika sistem berhasil dieksekusi, nilai yang dikeluarkan adalah 1
 
 //select databases
   Future<List<Map<String, dynamic>>> select() async {
