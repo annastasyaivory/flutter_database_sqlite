@@ -17,6 +17,12 @@ class HomeState extends State<Home> {
   List<Item> itemList;
 
   @override
+  void initState() {
+    super.initState();
+    updateListView();
+  }
+
+  @override
   Widget build(BuildContext context) {
     if (itemList == null) {
       itemList = List<Item>();
@@ -90,8 +96,8 @@ class HomeState extends State<Home> {
               onTap: () async {
 //TODO 3 Panggil Fungsi untuk Delete dari DB berdasarkan Item
                 int id = this.itemList[index].id;
-                int result = await dbHelper.delete(id);
-                itemList.removeAt(index);
+                int result = await dbHelper.delete(id); //hapus sesuai id
+                itemList.removeAt(index); // hapus pada list sesuai index
                 updateListView(); //update list item
               },
             ),
@@ -100,9 +106,9 @@ class HomeState extends State<Home> {
                   await navigateToEntryForm(context, this.itemList[index]);
 //TODO 4 Panggil Fungsi untuk Edit data
               if (item != null) {
-                int result = await dbHelper.update(item);
+                int result = await dbHelper.update(item); //update item
                 if (result > 0) {
-                  updateListView(); //update list iten
+                  updateListView(); //update list item
                 }
               }
             },
